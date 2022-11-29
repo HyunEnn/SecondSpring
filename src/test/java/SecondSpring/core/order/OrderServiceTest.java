@@ -1,16 +1,25 @@
 package SecondSpring.core.order;
 
+import SecondSpring.core.AppConfig;
 import SecondSpring.core.member.Grade;
 import SecondSpring.core.member.Member;
 import SecondSpring.core.member.MemberService;
 import SecondSpring.core.member.MemberServiceImpl;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class OrderServiceTest {
 
-    MemberService memberService = new MemberServiceImpl();
-    OrderService orderService = new OrderServiceImpl();
+    MemberService memberService;
+    OrderService orderService;
+
+    @BeforeEach
+    public void beforeEach() {
+        AppConfig appConfig = new AppConfig();
+        memberService = appConfig.memberService();
+        orderService = appConfig.orderService();
+    }
 
     @Test
     void createOrder() {
