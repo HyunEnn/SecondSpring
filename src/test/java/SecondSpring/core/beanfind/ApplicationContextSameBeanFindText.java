@@ -44,7 +44,7 @@ public class ApplicationContextSameBeanFindText {
             System.out.println("key = " + key + " value = " + beansOfType.get(key)); // iter에 대해서 key값은 itr.next , value 값은 map 변수명.get(key)를 통해서 가져옴
         }
         System.out.println("beansOfType = " + beansOfType);
-        assertThat(beansOfType.size()).isEqualTo(2);
+        assertThat(beansOfType.size()).isEqualTo(2); // memberRepository1, memberRepository2 2개로 구성 됨.
     }
 
     @Configuration
