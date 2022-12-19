@@ -36,5 +36,6 @@ public class ConfigurationSingletonTest {
         AppConfig bean = ac.getBean(AppConfig.class);
 
         System.out.println("bean = " + bean.getClass());
+        //configuration 이 없으면 순수한 AppConfig 가 오지만 싱글톤이 깨져서 매번 새롭게 실행
     }
 }
