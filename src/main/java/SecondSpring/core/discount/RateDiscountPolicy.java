@@ -2,7 +2,9 @@ package SecondSpring.core.discount;
 
 import SecondSpring.core.member.Grade;
 import SecondSpring.core.member.Member;
+import org.springframework.stereotype.Component;
 
+@Component
 public class RateDiscountPolicy implements DiscountPolicy{
     private int discountPolicy = 10;
     @Override
