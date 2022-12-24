@@ -2,6 +2,7 @@ package SecondSpring.core.discount;
 
 import SecondSpring.core.member.Member;
 
+
 public interface DiscountPolicy {
 
     /**

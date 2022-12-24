@@ -28,13 +28,13 @@ public class AppConfig {
     @Bean
     public OrderService orderService() {
         System.out.println("call AppConfig.orderService");
-//        return new OrderServiceImpl(memberRepository(), getDiscountPolicy());
-        return null;
+        return new OrderServiceImpl(memberRepository(), discountPolicy());
+//        return null;
     }
 
     @Bean
-    public DiscountPolicy getDiscountPolicy() {
-//        return new FixDiscountPolicy();
+    public DiscountPolicy discountPolicy() {
+//        return new FixDiscountPolicy()
         return new RateDiscountPolicy();
     }
 }

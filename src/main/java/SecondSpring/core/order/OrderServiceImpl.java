@@ -1,28 +1,29 @@
 package SecondSpring.core.order;
 
+import SecondSpring.core.annotation.MainDiscountPolicy;
 import SecondSpring.core.discount.DiscountPolicy;
 import SecondSpring.core.discount.FixDiscountPolicy;
 import SecondSpring.core.member.Member;
 import SecondSpring.core.member.MemberRepository;
 import SecondSpring.core.member.MemoryMemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
+//@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService{
 
-    private MemberRepository memberRepository;
-    private DiscountPolicy discountPolicy;
+    private final MemberRepository memberRepository;
+    private final DiscountPolicy discountPolicy;
 
+//@RequireArgsConstructor 이게 그대로 OrderServiceImpl 생성자를 자동적으로 만들어줌 그래서 필요없어짐.
     @Autowired
-    public void init(MemberRepository memberRepository, DiscountPolicy discountPolicy){
+    public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
-//    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-//        this.memberRepository = memberRepository;
-//        this.discountPolicy = discountPolicy;
-//    }
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
